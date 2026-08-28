@@ -5,7 +5,8 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const target = Math.floor(Math.random() * 100) + 1;
+// const target = Math.floor(Math.random() * 100) + 1;
+const target = 10
 let attempt = 0;
 let chance = 0;
 
@@ -23,18 +24,20 @@ I'm thinking of a number between 1 and 100.
 You have to guess the correct number`);
 console.log();
 
-console.log(`Please select the difficulty level:
-1. Easy (10 chances)
-2. Medium (5 chances)
-3. Hard (3 chances)`);
-console.log();
-
-function difficulty0() {
-  rl.question("Select your choice: ", (num) => {
+function selectDifficulty() {
+  console.log(`Please select the difficulty level:
+  1. Easy (10 chances)
+  2. Medium (5 chances)
+  3. Hard (3 chances)`);
+  console.log();
+  rl.question("Select your Difficulty: ", (num) => {
     let selected = difficulty[Number(num)];
 
     if (!selected) {
+      console.log()
       console.log("Please select a valid difficulty (1,2,3)");
+      console.log()
+      return selectDifficulty()
     }
 
     console.log(
@@ -48,7 +51,7 @@ function difficulty0() {
 function guessNum() {
   if (chance <= attempt) {
     console.log("You've ran out of chances");
-    return rl.close();
+    return restartGame()
   }
 
   rl.question("Enter your guess: ", (num) => {
@@ -84,9 +87,22 @@ function guessNum() {
         `Congratulations 🎉!! You guessed the correct number in ${attempt} attempts!!`,
       );
       console.log();
-      rl.close();
+      return restartGame()
     }
   });
 }
 
-difficulty0();
+function restartGame() {
+  rl.question("Do you want to restart [y/n]", (value) => {
+    if (value.toLowerCase() === "n") {
+      return rl.close()
+    }
+    if (value.toLowerCase() === "y") {
+      console.log()
+      return selectDifficulty()
+    }
+    return rl.close()
+  })
+}
+
+selectDifficulty();
