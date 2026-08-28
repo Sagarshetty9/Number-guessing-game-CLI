@@ -1,4 +1,3 @@
-import { X509Certificate } from "crypto";
 import readline from "readline";
 
 const rl = readline.createInterface({
@@ -34,10 +33,10 @@ function selectDifficulty() {
     let selected = difficulty[Number(num)];
 
     if (!selected) {
-      console.log()
+      console.log();
       console.log("Please select a valid difficulty (1,2,3)");
-      console.log()
-      return selectDifficulty()
+      console.log();
+      return selectDifficulty();
     }
 
     console.log(
@@ -51,7 +50,7 @@ function selectDifficulty() {
 function guessNum() {
   if (chance <= attempt) {
     console.log("You've ran out of chances");
-    return restartGame()
+    return restartGame();
   }
 
   rl.question("Enter your guess: ", (num) => {
@@ -87,7 +86,7 @@ function guessNum() {
         `Congratulations 🎉!! You guessed the correct number in ${attempt} attempts!!`,
       );
       console.log();
-      return restartGame()
+      return restartGame();
     }
   });
 }
@@ -95,18 +94,18 @@ function guessNum() {
 function restartGame() {
   rl.question("Do you want to restart [y/n]: ", (value) => {
     if (value.toLowerCase() === "n") {
-      console.log("Thank you for playing!!")
-      return rl.close()
+      console.log("Thank you for playing!!");
+      return rl.close();
     }
     if (value.toLowerCase() === "y") {
-      console.log()
+      console.log();
       attempt = 0;
       chance = 0;
       target = Math.floor(Math.random() * 100) + 1;
-      return selectDifficulty()
+      return selectDifficulty();
     }
-    return rl.close()
-  })
+    return rl.close();
+  });
 }
 
 selectDifficulty();
