@@ -5,8 +5,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-// const target = Math.floor(Math.random() * 100) + 1;
-const target = 10
+const target = Math.floor(Math.random() * 100) + 1;
 let attempt = 0;
 let chance = 0;
 
