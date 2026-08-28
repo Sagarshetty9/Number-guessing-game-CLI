@@ -87,8 +87,6 @@ Congratulations 🎉!! You guessed the correct number in 3 attempts!!
 ```
 
 ## Known Limitations / Possible Improvements
-
-- No option to replay without restarting the script
 - No input range validation (e.g., guessing 500 is accepted as a valid number, just incorrect)
 - Could be extended with `process.argv` support for custom ranges or non-interactive difficulty selection
 

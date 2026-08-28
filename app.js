@@ -1,3 +1,4 @@
+import { X509Certificate } from "crypto";
 import readline from "readline";
 
 const rl = readline.createInterface({
@@ -5,7 +6,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const target = Math.floor(Math.random() * 100) + 1;
+let target = Math.floor(Math.random() * 100) + 1;
 let attempt = 0;
 let chance = 0;
 
@@ -92,12 +93,16 @@ function guessNum() {
 }
 
 function restartGame() {
-  rl.question("Do you want to restart [y/n]", (value) => {
+  rl.question("Do you want to restart [y/n]: ", (value) => {
     if (value.toLowerCase() === "n") {
+      console.log("Thank you for playing!!")
       return rl.close()
     }
     if (value.toLowerCase() === "y") {
       console.log()
+      attempt = 0;
+      chance = 0;
+      target = Math.floor(Math.random() * 100) + 1;
       return selectDifficulty()
     }
     return rl.close()
