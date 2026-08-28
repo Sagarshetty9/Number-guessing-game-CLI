@@ -38,7 +38,6 @@ Run the game with:
 node app.js
 ```
 
-(Replace `index.js` with your actual filename if different.)
 
 ### How to Play
 
