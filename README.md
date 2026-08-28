@@ -19,7 +19,7 @@ A simple command-line number guessing game built with Node.js. The game picks a 
 1. Clone or download this repository
 2. Navigate to the project folder:
    ```bash
-   cd number-guessing-game
+   cd Number-guessing-game-CLI
    ```
 3. No dependencies to install — this project only uses Node's built-in `readline` module.
 
@@ -35,7 +35,7 @@ A simple command-line number guessing game built with Node.js. The game picks a 
 Run the game with:
 
 ```bash
-node index.js
+node app.js
 ```
 
 (Replace `index.js` with your actual filename if different.)
@@ -83,13 +83,12 @@ Congratulations 🎉!! You guessed the correct number in 3 attempts!!
 
 ```
 .
-├── index.js       # Main game logic
+├── app.js       # Main game logic
 └── README.md
 ```
 
 ## Known Limitations / Possible Improvements
 
-- Remaining chances aren't displayed after each guess
 - No option to replay without restarting the script
 - No input range validation (e.g., guessing 500 is accepted as a valid number, just incorrect)
 - Could be extended with `process.argv` support for custom ranges or non-interactive difficulty selection
